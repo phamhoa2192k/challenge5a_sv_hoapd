@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <database>
+		<servername></servername>
+		<username></username>
+		<password></password>
+		<dbname></dbname>
+	</database>
+</config>
