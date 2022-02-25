@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
   <database>
-		<servername></servername>
-		<username></username>
+		<servername>localhost</servername>
+		<username>root</username>
 		<password></password>
-		<dbname></dbname>
+		<dbname>challenge5</dbname>
 	</database>
 </config>

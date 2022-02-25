@@ -9,6 +9,6 @@
 		<h1>
 			Chào mừng tới Challenge 5
 		</h1>
-		<a href="/login.php">Đăng nhập</a>
+		<a href="/page/login.php">Đăng nhập</a>
 	</body>
 </html>
