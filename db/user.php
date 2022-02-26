@@ -1,6 +1,5 @@
 <?php
 	require_once $_SERVER["DOCUMENT_ROOT"]."/db/connection.php";
-
 	class User{
 		private $username;
 		private $password;
@@ -10,7 +9,7 @@
 		private $role;
 		private $avatar;
 
-		public function __construct($username, $password, $fullname, $email, $phonenumber, $role, $avatar){
+		public function __construct($username, $password, $fullname, $email, $phonenumber, $role, $avatar = "/upload/default-user.png"){
 			$this->username = $username;
 			$this->password = $password;
 			$this->fullname = $fullname;
@@ -27,13 +26,8 @@
 				return NULL;
 			}
 			else {
-				$avatar_path = NULL;
 				$row = $result->fetch_assoc();
-				$avatar_id = $row["avatar"];
-				if(! is_null($avatar_id)){
-					$avatar_path = (new Conn())->execute("SELECT filepath FROM file WHERE id = '".$avatar_id."'")->fetch_assoc()["filepath"];
-				}
-				return new User($row["username"], $row["password"], $row["fullname"], $row["email"], $row["phonenumber"], $row["role"], $avatar_path);
+				return new User($row["username"], $row["password"], $row["fullname"], $row["email"], $row["phonenumber"], $row["role"], $row["avatar"]);
 			}
 		}
 
@@ -54,32 +48,49 @@
 			$sql = "SELECT * from user";
 			$result = (new Conn())->execute($sql);
 			while($row = $result->fetch_assoc()){
-				$avatar_id = $row["avatar"];
-				if(! is_null($avatar_id)){
-					$avatar_path = (new Conn())->execute("SELECT filepath FROM file WHERE id = '".$avatar_id."'")->fetch_assoc()["filepath"];
-				}
-				array_push($user_array, new User($row["username"], $row["password"], $row["fullname"], $row["email"], $row["phonenumber"], $row["role"], $avatar_path));
+				array_push($user_array, new User($row["username"], $row["password"], $row["fullname"], $row["email"], $row["phonenumber"], $row["role"], $row["avatar"]));
 			}
 			return $user_array;
 		}
 
 		public static function find_all_student(){
 			$user_array = array();
-			$avatar_path = NULL;
 			$sql = "SELECT * FROM user WHERE role = 'student'";
 			$result = (new Conn())->execute($sql);
 			while($row = $result->fetch_assoc()){
-				$avatar_id = $row["avatar"];
-				if(! is_null($avatar_id)){
-					$avatar_path = (new Conn())->execute("SELECT filepath FROM file WHERE id = '".$avatar_id."'")->fetch_assoc()["filepath"];
-				}
-				array_push($user_array, new User($row["username"], $row["password"], $row["fullname"], $row["email"], $row["phonenumber"], $row["role"], $avatar_path));
+				array_push($user_array, new User($row["username"], $row["password"], $row["fullname"], $row["email"], $row["phonenumber"], $row["role"], $row["avatar"]));
 			}
 			return $user_array;
 		}
 
+		public static function update($username, $password, $fullname, $email, $phonenumber, $role){
+			$sql = "UPDATE user SET password = '".$password."', fullname = '".$fullname."', email = '".$email."', phonenumber='".$phonenumber."', role ='".$role."' where username ='".$username."';";
+			$result = (new Conn())->execute($sql);
+			return $result;
+		}
+
+		public static function update_persional($username, $password, $email, $phonenumber, $avatar){
+			$sql = "UPDATE user SET password = '".$password."', email = '".$email."', phonenumber='".$phonenumber."', avatar ='".$avatar."' where username ='".$username."';";
+			echo $sql;
+			$result = (new Conn())->execute($sql);
+			return $result;
+		}
+
+		public static function insert($username, $password, $fullname, $email, $phonenumber, $role){
+			$sql = "INSERT INTO user (username, password, fullname, email, phonenumber, role) VALUES ('".$username."','".$password."','".$fullname."','".$email."','".$phonenumber."','".$role."');";
+			return (new Conn())->execute($sql);
+		}
+
+		public static function delete($username){
+			$sql = "DELETE FROM user WHERE username = '".$username."';";
+			return (new Conn())->execute($sql);
+		}
+
 		public function get_username(){
 			return $this->username;
+		}
+		public function get_password(){
+			return $this->password;
 		}
 
 		public function get_fullname(){
