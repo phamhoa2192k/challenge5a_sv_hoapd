@@ -12,14 +12,14 @@
 		<?php
 			include_once $_SERVER["DOCUMENT_ROOT"]."/page/component/header.php";
 		?>
-		<h1>
+		<h1 class="header">
 			Thông tin chi tiết học sinh
 		</h1>
 		<div>
 			<a href="/page/teacher/add_student.php">Thêm học sinh</a>
 		</div>
 		<div>
-			<h3>Danh sách sinh viên</h3>
+			<h3>Danh sách học sinh</h3>
 			<table>
 				<tr>
 					<th>Tên đăng nhập</th>

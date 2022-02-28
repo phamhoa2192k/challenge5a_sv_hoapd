@@ -14,7 +14,7 @@
 			$username = $_SESSION["username"];
 			$user = User::find_by_username($username);
 		?>
-		<h1>
+		<h1 class="header">
 			Thông tin cá nhân
 		</h1>
 		<div>
@@ -27,7 +27,7 @@
 				<p><?php echo $user->get_email()?></p>
 				<h3>Số điện thoại:</h3>
 				<p><?php echo $user->get_phonenumber()?></p>
-				<h3>Avatar</h3>
+				<h3>Avatar:</h3>
 				<img src="<?php echo $user->get_avatar()?>" alt="<?php echo $user->get_fullname()?>" width="200">
 			</div>
 		</div>

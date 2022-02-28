@@ -8,10 +8,10 @@
 		<div>
 			<div>
 				<h4>Đăng nhập</h4>
-				<form action="/page/login.php" method="post">
-					<label for="username">Tên đăng nhập</label>
+				<form action="/page/login.php" method="post" class="login-form">
+					<label for="username">Tên đăng nhập:</label>
 					<input type="text" id="username" name="username" required>
-					<label for="password">Mật khẩu</label>
+					<label for="password">Mật khẩu:</label>
 					<input type="password" id="password" name="password" required>
 					<button type="submit">Đăng nhập</button>
 				</form>

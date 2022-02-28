@@ -15,7 +15,7 @@
 		<?php
 			include_once $_SERVER["DOCUMENT_ROOT"]."/page/component/header.php";
 		?>
-		<h1>
+		<h1 class="header">
 			Xoá học sinh
 		</h1>
 		<div>

@@ -6,7 +6,9 @@
 			return (new Conn)->execute($sql);
 		}
 
-		public static function find_by_filename($filename){
-			
+		public static function find_filename_by_filepath($filepath){
+			$sql = "SELECT filename from file where filepath = '".$filepath."';";
+			$result = (new Conn)->execute($sql);
+			return $result->fetch_assoc()["filename"];
 		}
 	}

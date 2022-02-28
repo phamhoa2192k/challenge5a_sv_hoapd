@@ -4,6 +4,7 @@
 		<title>
 			Index
 		</title>
+		<link rel="stylesheet" href="/public/css/all.css">
 	</head>
 	<body>
 		<h1>

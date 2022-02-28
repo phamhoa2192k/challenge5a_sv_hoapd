@@ -16,7 +16,7 @@
 			$username = $_SESSION["username"];
 			$user = User::find_by_username($username);
 		?>
-		<h1>
+		<h1 class="header">
 			Thay đổi thông tin cá nhân
 		</h1>
 		<div>

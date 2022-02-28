@@ -1,0 +1,148 @@
+* {
+	font-family: 'myFirstFont', 'Courier New', Courier, monospace;
+	box-sizing: border-box;
+	font-size: 20px;
+	font-weight: 300;
+}
+
+
+body {
+	position: relative;
+	top: 50px;
+	bottom: 50px;
+	margin: auto;
+	background: white;
+	opacity: 0.87;
+	width: 80%;
+	padding: 20px 100px;
+	border-radius: 30px;
+
+}
+
+html{
+	background-image: url("/public/img/background.svg");
+}
+
+h1{
+	font-size: 40px;
+}
+
+h2{
+	font-size: 36px;
+}
+
+h3{
+	font-size: 32px;
+}
+
+h4{
+	text-align: center;
+	font-size: 28px;
+}
+
+h5{
+	font-size: 24px;
+}
+
+h6{
+	font-size: 20px;
+}
+
+p{
+	font-size: 20px;
+}
+
+@font-face {
+  font-family: myFirstFont;
+  src: url("/public/font/Pacifico-Regular.ttf");
+}
+
+input {
+	display: block;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+	border-radius: 5px;
+}
+
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+.nav-bar{
+	text-align: center;
+	top: 20px;
+	left: auto;
+	position: fixed;
+}
+
+.nav-bar > *{
+	background-color: white;
+	margin: 10px 20px;
+	padding: 8px;
+	display: inline;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	border-radius: 20px
+}
+
+.persional{
+	padding: 8px;
+	background-color: white;
+	top: 3px;
+	right: 100px;
+	position: fixed;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	border-radius: 20px
+}
+
+.homework {
+	padding: 10px 20px;
+}
+
+.header{
+	text-align: center;
+}
+
+::placeholder{
+	font-size: 15px;
+}
+
+
+a{
+	color: #03396c ;
+	text-decoration-line: none;
+}
+
+button {
+	margin-top: 5px;
+	border-radius: 8px;
+}
+
+input {
+	border-radius: 8px;
+	border-color: #929292;
+}
+
+.login-form{
+	text-align: center;
+}
+
+.login-form > input {
+	margin: 10px auto;
+}
