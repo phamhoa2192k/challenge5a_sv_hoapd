@@ -12,9 +12,11 @@ function sendMessage(){
 	.then(data => {
 		console.log(data);
 		if(data.success == true){
+			if(n = document.getElementById("tb"))
+				n.remove();
 			var conversation = document.getElementById("conversation");
 			var node = document.createElement("span");
-			node.innerHTML = `<strong>${data.sender}: </strong>${mess}`;
+			node.innerHTML = `<strong>${data.sender}: </strong>${mess}<br>`;
 			conversation.appendChild(node);
 		}
 	})

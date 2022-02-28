@@ -44,7 +44,7 @@
 			<div id="conversation">
 				<?php
 					$conversation = Message::get_conversation($_SESSION["username"], $_GET["username"]);
-					if ($conversation == NULL) echo "<h3>Chưa có tin nhắn nào với người này</h3>";
+					if ($conversation == NULL) echo "<h3 id=\"tb\">Chưa có tin nhắn nào với người này</h3>";
 					else foreach($conversation as $message){
 						echo "<span><strong>".$message->get_sender_username().":</strong> ".$message->get_content()."</span><br>";
 					}

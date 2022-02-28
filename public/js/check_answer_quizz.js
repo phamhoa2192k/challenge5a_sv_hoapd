@@ -18,9 +18,12 @@ function check_answer_quizz(){
 			node.setAttribute('href',  data["filepath"]);
 			document.getElementById("answer").remove();
 			document.getElementById("check").remove();
+			if(n = document.getElementById("incorrect"))
+				n.remove();
 		}
 		else {
 			node = document.createElement("h5");
+			node.setAttribute("id", "incorrect");
 			node.innerText = "Đáp án của bạn không chính xác rồi!";
 		}
 		document.getElementById("file_answer").appendChild(node);

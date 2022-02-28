@@ -22,7 +22,7 @@
 			<a href="/page/teacher/add_student.php">Thêm học sinh</a>
 		</div>
 		<div>
-			<form action="/page/teacher/delete_student.php?username=<?php echo $username?>" method="post">
+			<form action="/page/teacher/delete_student.php?username=<?php echo $_GET["username"]?>" method="post">
 				<label for="username">Tên đăng nhập</label>
 				<input type="text" id="username" name="username" value="<?php echo $user->get_username()?>" readonly>
 				<label for="password">Mật khẩu</label>
@@ -37,8 +37,7 @@
 			</form>
 			<?php
 				if(!empty($_POST)){
-					var_dump($_POST);
-					$result = User::delete($username);
+					$result = User::delete($_GET['username']);
 					if($result == true)
 						header("Location: /page/teacher/list_student.php");
 				  else echo "<h3>Xoá học sinh không thành công</h3>";
